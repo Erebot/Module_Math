@@ -27,7 +27,6 @@ if (!defined('__DIR__')) {
 } 
 
 include_once(__DIR__.'/src/lexer.php');
-include_once('src/styling.php');
 
 class   ErebotModule_math
 extends ErebotModuleBase
