@@ -16,23 +16,14 @@
     along with Erebot.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-if (!defined('__DIR__')) {
-  class __FILE_CLASS__ {
-    function  __toString() {
-      $X = debug_backtrace();
-      return dirname($X[1]['file']);
-    }
-  }
-  define('__DIR__', new __FILE_CLASS__);
-} 
-
-include_once(__DIR__.'/src/lexer.php');
-
-class   ErebotModule_math
-extends ErebotModuleBase
+class   Erebot_Module_math
+extends Erebot_Module_Base
 {
     static protected $_metadata = array(
-        'requires'  =>  array('TriggerRegistry', 'Helper'),
+        'requires'  =>  array(
+            'Erebot_Module_TriggerRegistry',
+            'Erebot_Module_Helper',
+        ),
     );
     protected $_trigger;
     protected $_handler;
@@ -40,17 +31,21 @@ extends ErebotModuleBase
     public function reload($flags)
     {
         if (!($flags & self::RELOAD_INIT)) {
-            $registry   = $this->_connection->getModule('TriggerRegistry',
-                                ErebotConnection::MODULE_BY_NAME);
-            $matchAny  = ErebotUtils::getVStatic($registry, 'MATCH_ANY');
+            $registry   = $this->_connection->getModule(
+                'Erebot_Module_TriggerRegistry',
+                Erebot_Connection::MODULE_BY_NAME
+            );
+            $matchAny  = Erebot_Utils::getVStatic($registry, 'MATCH_ANY');
             $this->_connection->removeEventHandler($this->_handler);
             $registry->freeTriggers($this->_trigger, $matchAny);
         }
 
         if ($flags & self::RELOAD_HANDLERS) {
-            $registry   = $this->_connection->getModule('TriggerRegistry',
-                                ErebotConnection::MODULE_BY_NAME);
-            $matchAny  = ErebotUtils::getVStatic($registry, 'MATCH_ANY');
+            $registry   = $this->_connection->getModule(
+                'Erebot_Module_TriggerRegistry',
+                Erebot_Connection::MODULE_BY_NAME
+            );
+            $matchAny  = Erebot_Utils::getVStatic($registry, 'MATCH_ANY');
 
             $trigger        = $this->parseString('trigger', 'math');
             $this->_trigger = $registry->registerTriggers($trigger, $matchAny);
@@ -60,22 +55,22 @@ extends ErebotModuleBase
                     'Could not register Math trigger'));
             }
 
-            $filter         = new ErebotTextFilter(
+            $filter         = new Erebot_TextFilter(
                                     $this->_mainCfg,
-                                    ErebotTextFilter::TYPE_WILDCARD,
+                                    Erebot_TextFilter::TYPE_WILDCARD,
                                     $trigger.' *', TRUE);
-            $this->_handler = new ErebotEventHandler(
+            $this->_handler = new Erebot_EventHandler(
                                     array($this, 'handleMath'),
-                                    'iErebotEventMessageText',
+                                    'Erebot_Interface_Event_TextMessage',
                                     NULL, $filter);
             $this->_connection->addEventHandler($this->_handler);
             $this->registerHelpMethod(array($this, 'getHelp'));
         }
     }
 
-    public function getHelp(iErebotEventMessageText &$event, $words)
+    public function getHelp(Erebot_Interface_Event_TextMessage &$event, $words)
     {
-        if ($event instanceof iErebotEventPrivate) {
+        if ($event instanceof Erebot_Interface_Event_Private) {
             $target = $event->getSource();
             $chan   = NULL;
         }
@@ -94,7 +89,7 @@ extends ErebotModuleBase
 Provides the <b><var name="trigger"/></b> command which allows you
 to submit formulae to the bot for computation.
 ');
-            $formatter = new ErebotStyling($msg, $translator);
+            $formatter = new Erebot_Styling($msg, $translator);
             $formatter->assign('trigger', $trigger);
             $this->sendMessage($target, $formatter->render());
             return TRUE;
@@ -110,7 +105,7 @@ Computes the given formula and displays the result.
 The four basic operators (+, -, *, /), parenthesis, exponentiation (^)
 and modules (%) are supported.
 ");
-            $formatter = new ErebotStyling($msg, $translator);
+            $formatter = new Erebot_Styling($msg, $translator);
             $formatter->assign('trigger', $trigger);
             $this->sendMessage($target, $formatter->render());
 
@@ -118,43 +113,43 @@ and modules (%) are supported.
         }
     }
 
-    public function handleMath(iErebotEventMessageText &$event)
+    public function handleMath(Erebot_Interface_Event_TextMessage &$event)
     {
-        if ($event instanceof iErebotEventPrivate) {
+        if ($event instanceof Erebot_Interface_Event_Private) {
             $target = $event->getSource();
             $chan   = NULL;
         }
         else
             $target = $chan = $event->getChan();
 
-        $formula    = ErebotUtils::gettok($event->getText(), 1);
+        $formula    = Erebot_Utils::gettok($event->getText(), 1);
         $translator = $this->getTranslator($chan);
 
         try {
-            $fp     = new MathLexer($formula);
+            $fp     = new Erebot_Module_Math_Lexer($formula);
             $msg    = '<var name="formula"/> = <b><var name="result"/></b>';
-            $tpl    = new ErebotStyling($msg, $translator);
+            $tpl    = new Erebot_Styling($msg, $translator);
             $tpl->assign('formula', $formula);
             $tpl->assign('result',  $fp->getResult());
             $this->sendMessage($target, $tpl->render());
         }
-        catch (EMathDivisionByZero $e) {
+        catch (Erebot_Module_Math_DivisionByZeroException $e) {
             $this->sendMessage($target,
                 $translator->gettext('Division by zero'));
         }
-        catch (EMathExponentTooBig $e) {
+        catch (Erebot_Module_Math_ExponentTooBigException $e) {
             $this->sendMessage($target,
                 $translator->gettext('Exponent is too big for computation'));
         }
-        catch (EMathNegativeExponent $e) {
+        catch (Erebot_Module_Math_NegativeExponentException $e) {
             $this->sendMessage($target,
                 $translator->gettext('^ is undefined for negative exponents'));
         }
-        catch (EMathNoModulusOnReals $e) {
+        catch (Erebot_Module_Math_NoModulusOnRealsException $e) {
             $this->sendMessage($target,
                 $translator->gettext('% is undefined on real numbers'));
         }
-        catch (EMathSyntaxError $e) {
+        catch (Erebot_Module_Math_SyntaxErrorException $e) {
             $this->sendMessage($target,
                 $translator->gettext('Syntax error'));
         }

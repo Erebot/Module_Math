@@ -16,22 +16,6 @@
     along with Erebot.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-class   EMath
+class   Erebot_Module_Math_Exception
 extends Exception {}
 
-class   EMathDivisionByZero
-extends EMath {}
-
-class   EMathNoModulusOnReals
-extends EMath {}
-
-class   EMathSyntaxError
-extends EMath {}
-
-class   EMathNegativeExponent
-extends EMath {}
-
-class   EMathExponentTooBig
-extends EMath {}
-
-?>

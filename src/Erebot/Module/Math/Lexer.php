@@ -16,10 +16,7 @@
     along with Erebot.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-require_once(dirname(__FILE__).'/exceptions.php');
-require_once(dirname(__FILE__).'/parser.php');
-
-class MathLexer
+class Erebot_Module_Math_Lexer
 {
     protected $formula;
     protected $length;
@@ -39,7 +36,7 @@ class MathLexer
         $this->length   = strlen($formula);
         $this->position = 0;
 
-        $this->parser   = new MathParser();
+        $this->parser   = new Erebot_Module_Math_Parser();
         $this->tokenize();
     }
 
@@ -48,14 +45,14 @@ class MathLexer
     protected function tokenize()
     {
         $operators = array(
-            '(' =>  MathParser::TK_PAR_OPEN,
-            ')' =>  MathParser::TK_PAR_CLOSE,
-            '+' =>  MathParser::TK_OP_ADD,
-            '-' =>  MathParser::TK_OP_SUB,
-            '*' =>  MathParser::TK_OP_MUL,
-            '/' =>  MathParser::TK_OP_DIV,
-            '%' =>  MathParser::TK_OP_MOD,
-            '^' =>  MathParser::TK_OP_POW,
+            '(' =>  Erebot_Module_Math_Parser::TK_PAR_OPEN,
+            ')' =>  Erebot_Module_Math_Parser::TK_PAR_CLOSE,
+            '+' =>  Erebot_Module_Math_Parser::TK_OP_ADD,
+            '-' =>  Erebot_Module_Math_Parser::TK_OP_SUB,
+            '*' =>  Erebot_Module_Math_Parser::TK_OP_MUL,
+            '/' =>  Erebot_Module_Math_Parser::TK_OP_DIV,
+            '%' =>  Erebot_Module_Math_Parser::TK_OP_MOD,
+            '^' =>  Erebot_Module_Math_Parser::TK_OP_POW,
         );
 
         while ($this->position < $this->length) {
@@ -69,18 +66,27 @@ class MathLexer
 
             else if (preg_match(self::PATT_REAL, $subject, $matches)) {
                 $this->position += strlen($matches[0]);
-                $this->parser->doParse(MathParser::TK_NUMBER, (double) $matches[0]);
+                $this->parser->doParse(
+                    Erebot_Module_Math_Parser::TK_NUMBER,
+                    (double) $matches[0]
+                );
             }
 
             else if (preg_match(self::PATT_INTEGER, $subject, $matches)) {
                 $this->position += strlen($matches[0]);
-                $this->parser->doParse(MathParser::TK_NUMBER, (int) $matches[0]);
+                $this->parser->doParse(
+                    Erebot_Module_Math_Parser::TK_NUMBER,
+                    (int) $matches[0]
+                );
             }
 
             else if (strpos(" \t", $c) !== FALSE)
                 $this->position++;
             else
-                $this->parser->doParse(MathParser::YY_ERROR_ACTION, $c);
+                $this->parser->doParse(
+                    Erebot_Module_Math_Parser::YY_ERROR_ACTION,
+                    $c
+                );
         }
 
         // End of tokenization.
@@ -88,4 +94,3 @@ class MathLexer
     }
 }
 
-?>

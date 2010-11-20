@@ -16,32 +16,30 @@
     along with Erebot.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-include_once(dirname(dirname(__FILE__)).'/src/lexer.php');
-
 class   MathParserTest
 extends PHPUnit_Framework_TestCase
 {
     public function testConstants()
     {
-        $lex    =   new MathLexer('42');
+        $lex    =   new Erebot_Module_Math_Lexer('42');
         $this->assertEquals(42, $lex->getResult());
     }
 
     public function testConstants2()
     {
-        $lex    =   new MathLexer('4.2');
+        $lex    =   new Erebot_Module_Math_Lexer('4.2');
         $this->assertEquals(4.2, $lex->getResult());
     }
 
     public function testConstants3()
     {
-        $lex    =   new MathLexer('4.');
+        $lex    =   new Erebot_Module_Math_Lexer('4.');
         $this->assertEquals(4.0, $lex->getResult());
     }
 
     public function testConstants4()
     {
-        $lex    =   new MathLexer('.2');
+        $lex    =   new Erebot_Module_Math_Lexer('.2');
         $this->assertEquals(0.2, $lex->getResult());
     }
 
@@ -50,62 +48,61 @@ extends PHPUnit_Framework_TestCase
     /**
      * Attempting a division by zero must
      * result in an exception being thrown.
-     * @expectedException EMathDivisionByZero
+     * @expectedException Erebot_Module_Math_DivisionByZeroException
      */
     public function testDivisionByZero()
     {
-        $lex    =   new MathLexer('1/0');
+        $lex    =   new Erebot_Module_Math_Lexer('1/0');
     }
 
     /**
      * Attempting a division by zero must
      * result in an exception being thrown.
-     * @expectedException EMathDivisionByZero
+     * @expectedException Erebot_Module_Math_DivisionByZeroException
      */
     public function testDivisionByZero2()
     {
-        $lex    =   new MathLexer('1.0/0');
+        $lex    =   new Erebot_Module_Math_Lexer('1.0/0');
     }
 
     /**
      * Trying to compute the rest modulo zero
      * is the same as dividing by zero.
-     * @expectedException EMathDivisionByZero
+     * @expectedException Erebot_Module_Math_DivisionByZeroException
      */
     public function testDivisionByZero3()
     {
-        $lex    =   new MathLexer('1 % 0');
+        $lex    =   new Erebot_Module_Math_Lexer('1 % 0');
     }
 
     /**
      * Computing a modulus on real numbers in undefined
      * and must result in an exception being thrown.
-     * @expectedException EMathNoModulusOnReals
+     * @expectedException Erebot_Module_Math_NoModulusOnRealsException
      */
     public function testModulusOnReals()
     {
-        $lex    =   new MathLexer('1.0 % 2');
+        $lex    =   new Erebot_Module_Math_Lexer('1.0 % 2');
     }
 
     /**
      * Computing a modulus on real numbers in undefined
      * and must result in an exception being thrown.
-     * @expectedException EMathNoModulusOnReals
+     * @expectedException Erebot_Module_Math_NoModulusOnRealsException
      */
     public function testModulusOnReals2()
     {
-        $lex    =   new MathLexer('1 % 2.0');
+        $lex    =   new Erebot_Module_Math_Lexer('1 % 2.0');
     }
 
     /**
      * Computing exponentiation with a negative exponent
      * is undefined and must throw an exception.
-     * @expectedException EMathNegativeExponent
+     * @expectedException Erebot_Module_Math_NegativeExponentException
      */
     public function testNegativeExponentiation()
     {
-        $lex    =   new MathLexer('1 ^ (-1)');
+        $lex    =   new Erebot_Module_Math_Lexer('1 ^ (-1)');
     }
 }
 
-?>
