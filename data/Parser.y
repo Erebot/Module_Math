@@ -1,4 +1,4 @@
-%name math_
+%name Erebot_Module_Math_Parser_
 %declare_class {class Erebot_Module_Math_Parser}
 %syntax_error { throw new Erebot_Module_Math_SyntaxErrorException(); }
 %token_prefix TK_
