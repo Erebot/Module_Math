@@ -16,7 +16,7 @@
     along with Erebot.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-class   Erebot_Module_math
+class   Erebot_Module_Math
 extends Erebot_Module_Base
 {
     static protected $_metadata = array(
