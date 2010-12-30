@@ -53,14 +53,12 @@ extends Erebot_Module_Base
                     'Could not register Math trigger'));
             }
 
-            $filter         = new Erebot_TextFilter(
-                                    $this->_mainCfg,
-                                    Erebot_TextFilter::TYPE_WILDCARD,
-                                    $trigger.' *', TRUE);
             $this->_handler = new Erebot_EventHandler(
-                                    array($this, 'handleMath'),
-                                    'Erebot_Interface_Event_TextMessage',
-                                    NULL, $filter);
+                array($this, 'handleMath'),
+                'Erebot_Interface_Event_TextMessage',
+                NULL,
+                new Erebot_TextFilter_Wildcard($trigger.' *', TRUE)
+            );
             $this->_connection->addEventHandler($this->_handler);
             $this->registerHelpMethod(array($this, 'getHelp'));
         }
