@@ -119,7 +119,7 @@ and modules (%) are supported.
         else
             $target = $chan = $event->getChan();
 
-        $formula    = Erebot_Utils::gettok($event->getText(), 1);
+        $formula    = $event->getText()->getTokens(1);
         $translator = $this->getTranslator($chan);
 
         try {
