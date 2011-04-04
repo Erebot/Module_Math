@@ -56,7 +56,7 @@ extends Erebot_Module_Base
             $this->_handler = new Erebot_EventHandler(
                 array($this, 'handleMath'),
                 new Erebot_Event_Match_All(
-                    new Erebot_Event_Match_InstanceOf('Erebot_Interface_Event_TextMessage'),
+                    new Erebot_Event_Match_InstanceOf('Erebot_Interface_Event_Base_TextMessage'),
                     new Erebot_Event_Match_TextWildcard($trigger.' *', TRUE)
                 )
             );
@@ -69,9 +69,9 @@ extends Erebot_Module_Base
     {
     }
 
-    public function getHelp(Erebot_Interface_Event_TextMessage &$event, $words)
+    public function getHelp(Erebot_Interface_Event_Base_TextMessage $event, $words)
     {
-        if ($event instanceof Erebot_Interface_Event_Private) {
+        if ($event instanceof Erebot_Interface_Event_Base_Private) {
             $target = $event->getSource();
             $chan   = NULL;
         }
@@ -114,9 +114,9 @@ and modules (%) are supported.
         }
     }
 
-    public function handleMath(Erebot_Interface_Event_TextMessage &$event)
+    public function handleMath(Erebot_Interface_Event_Base_TextMessage $event)
     {
-        if ($event instanceof Erebot_Interface_Event_Private) {
+        if ($event instanceof Erebot_Interface_Event_Base_Private) {
             $target = $event->getSource();
             $chan   = NULL;
         }
