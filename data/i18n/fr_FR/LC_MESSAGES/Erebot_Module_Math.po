@@ -1,62 +1,40 @@
+msgid   "help.usage"
+msgstr       "\n"
+     "<b>Usage :</b> !<var name='trigger'/> &lt;<u>formule</u>&gt;.\n"
+     "Calcule la formule donnée et affiche le résultat..\n"
+     "Les quatres opérateurs basics (+, -, *, /), les parenthèses, "
+     "la puissance (^) et le modulo (%) sont supportés.\n"
+#
+msgid   "help.module"
+msgstr       "\n"
+     "Fournit la commande <b><var name=\"trigger\"/></b> permettant\n"
+     "de soumettre un calcul au bot.\n"
+#
+msgid   "error.trigger"
+msgstr       "Impossible d'enregistrer le déclencheur pour le module Math"
+#
+msgid   "error.syntax"
+msgstr       "Erreur de syntaxe"
+#
+msgid   "error.modulo.real"
+msgstr       "L'opérateur % n'est pas défini sur les réels"
+#
+msgid   "error.exponent.too-big"
+msgstr       "L'exposant est trop grand pour ce calcul"
+#
+msgid   "error.exponent.negative"
+msgstr       "L'opérateur ^ n'est pas défini avec des exposants négatifs"
+#
+msgid   "error.division-by-0"
+msgstr       "Division par zéro"
+#
 msgid   ""
-msgstr  "Project-Id-Version: \n"
+msgstr  "Project-Id-Version: Erebot_Module_Math 0.5.0\n"
         "POT-Creation-Date: \n"
-        "PO-Revision-Date: \n"
+        "PO-Revision-Date: 2011-04-16 00:49+0200\n"
         "Last-Translator: \n"
         "Language-Team: \n"
         "MIME-Version: 1.0\n"
         "Content-Type: text/plain; charset=utf-8\n"
         "Content-Transfer-Encoding: 8bit\n"
-#
-msgid   "\n"
-        "<b>Usage:</b> !<var name='trigger'/> &lt;<u>formula</u>&gt;.\n"
-        "Computes the given formula and displays the result.\n"
-        "The four basic operators (+, -, *, /), parenthesis, exponentiation "
-        "(^)\n"
-        "and modules (%) are supported.\n"
-msgstr  ""
-#
-msgid   "\n"
-        "Provides the <b><var name=\"trigger\"/></b> command which allows you\n"
-        "to submit formulae to the bot for computation.\n"
-msgstr  ""
-#
-msgid   "% is undefined on real numbers"
-msgstr  ""
-#
-#
-# File: Math.php, line: 27
-msgid   "Could not register Math trigger"
-msgstr  "Impossible d'enregistrer le déclencheur pour le module Math"
-#
-#
-# File: Math.php, line: 52
-msgid   "Division by zero"
-msgstr  "Division par zéro"
-#
-#
-# File: Math.php, line: 55
-msgid   "Exponent is too big for computation"
-msgstr  "L'exposant est trop grand pour ce calcul"
-#
-#
-# File: Math.php, line: 64
-msgid   "Syntax error"
-msgstr  "Erreur de syntaxe"
-#
-msgid   "^ is undefined for negative exponents"
-msgstr  ""
-#
-#
-#
-#
-# File: Math.php, line: 61
-#~ msgid        "Operator % undefined on real numbers"
-#~ msgstr       "L'opérateur % n'est pas défini sur les réels"
-#
-#
-#
-#
-# File: Math.php, line: 58
-#~ msgid        "Operator ^ undefined with negative exponents"
-#~ msgstr       "L'opérateur ^ n'est pas défini avec des exposants négatifs"
+

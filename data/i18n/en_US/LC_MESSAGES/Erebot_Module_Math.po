@@ -1,47 +1,41 @@
+msgid   "help.usage"
+msgstr       "\n"
+     "<b>Usage:</b> !<var name='trigger'/> &lt;<u>formula</u>&gt;.\n"
+     "Computes the given formula and displays the result.\n"
+     "The four basic operators (+, -, *, /), parenthesis, exponentiation "
+     "(^)\n"
+     "and modules (%) are supported.\n"
+#
+msgid   "help.module"
+msgstr       "\n"
+     "Provides the <b><var name=\"trigger\"/></b> command which allows you\n"
+     "to submit formulae to the bot for computation.\n"
+#
+msgid   "error.trigger"
+msgstr       "Could not register Math trigger"
+#
+msgid   "error.syntax"
+msgstr       "Syntax error"
+#
+msgid   "error.modulo.real"
+msgstr       "% is undefined on real numbers"
+#
+msgid   "error.exponent.too-big"
+msgstr       "Exponent is too big for computation"
+#
+msgid   "error.exponent.negative"
+msgstr       "^ is undefined for negative exponents"
+#
+msgid   "error.division-by-0"
+msgstr       "Division by zero"
 #
 msgid   ""
-msgstr  "Project-Id-Version: PACKAGE VERSION\n"
+msgstr  "Project-Id-Version: Erebot_Module_Math 0.5.0\n"
+        "PO-Revision-Date: 2011-04-16 00:49+0200\n"
         "Last-Translator: Automatically generated\n"
         "Language-Team: none\n"
         "MIME-Version: 1.0\n"
-        "Content-Type: text/plain; charset=ASCII\n"
+        "Content-Type: text/plain; charset=utf-8\n"
         "Content-Transfer-Encoding: 8bit\n"
         "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-#
-msgid   "\n"
-        "<b>Usage:</b> !<var name='trigger'/> &lt;<u>formula</u>&gt;.\n"
-        "Computes the given formula and displays the result.\n"
-        "The four basic operators (+, -, *, /), parenthesis, exponentiation "
-        "(^)\n"
-        "and modules (%) are supported.\n"
-msgstr  "\n"
-        "<b>Usage:</b> !<var name='trigger'/> &lt;<u>formula</u>&gt;.\n"
-        "Computes the given formula and displays the result.\n"
-        "The four basic operators (+, -, *, /), parenthesis, exponentiation "
-        "(^)\n"
-        "and modules (%) are supported.\n"
-#
-msgid   "\n"
-        "Provides the <b><var name=\"trigger\"/></b> command which allows you\n"
-        "to submit formulae to the bot for computation.\n"
-msgstr  "\n"
-        "Provides the <b><var name=\"trigger\"/></b> command which allows you\n"
-        "to submit formulae to the bot for computation.\n"
-#
-msgid   "% is undefined on real numbers"
-msgstr  "% is undefined on real numbers"
-#
-msgid   "Could not register Math trigger"
-msgstr  "Could not register Math trigger"
-#
-msgid   "Division by zero"
-msgstr  "Division by zero"
-#
-msgid   "Exponent is too big for computation"
-msgstr  "Exponent is too big for computation"
-#
-msgid   "Syntax error"
-msgstr  "Syntax error"
-#
-msgid   "^ is undefined for negative exponents"
-msgstr  "^ is undefined for negative exponents"
+
