@@ -1,1 +1,2 @@
 @INCLUDE = buildenv/Doxyfile
+EXCLUDE_PATTERNS = "*/src/Erebot/Module/Math/Parser.php"
