@@ -19,12 +19,6 @@
 class   Erebot_Module_Math
 extends Erebot_Module_Base
 {
-    static protected $_metadata = array(
-        'requires'  =>  array(
-            'Erebot_Module_TriggerRegistry',
-            'Erebot_Module_Helper',
-        ),
-    );
     protected $_trigger;
     protected $_handler;
 
