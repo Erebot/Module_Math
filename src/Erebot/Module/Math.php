@@ -48,9 +48,11 @@ extends Erebot_Module_Base
             }
 
             $this->_handler = new Erebot_EventHandler(
-                array($this, 'handleMath'),
+                new Erebot_Callable(array($this, 'handleMath')),
                 new Erebot_Event_Match_All(
-                    new Erebot_Event_Match_InstanceOf('Erebot_Interface_Event_Base_TextMessage'),
+                    new Erebot_Event_Match_InstanceOf(
+                        'Erebot_Interface_Event_Base_TextMessage'
+                    ),
                     new Erebot_Event_Match_TextWildcard($trigger.' *', TRUE)
                 )
             );
