@@ -2,7 +2,7 @@
 msgid   ""
 msgstr  "Project-Id-Version: Erebot_Module_Math 0.5.0\n"
         "Report-Msgid-Bugs-To: i18n@erebot.net\n"
-        "POT-Creation-Date: 2011-08-23 00:20+0200\n"
+        "POT-Creation-Date: 2011-08-23 01:03+0200\n"
         "PO-Revision-Date: 2011-04-16 00:49+0200\n"
         "Last-Translator: Automatically generated\n"
         "Language-Team: none\n"

@@ -6,7 +6,7 @@
 msgid   ""
 msgstr  "Project-Id-Version: Erebot_Module_Math 0.1.0\n"
         "Report-Msgid-Bugs-To: i18n@erebot.net\n"
-        "POT-Creation-Date: 2011-08-23 00:20+0200\n"
+        "POT-Creation-Date: 2011-08-23 01:03+0200\n"
         "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
         "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
         "Language-Team: LANGUAGE <LL@li.org>\n"
