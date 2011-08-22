@@ -6,15 +6,16 @@
 msgid   ""
 msgstr  "Project-Id-Version: Erebot_Module_Math 0.1.0\n"
         "Report-Msgid-Bugs-To: i18n@erebot.net\n"
-        "POT-Creation-Date: 2011-06-07 01:06+0200\n"
+        "POT-Creation-Date: 2011-08-23 00:20+0200\n"
         "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
         "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
         "Language-Team: LANGUAGE <LL@li.org>\n"
+        "Language: \n"
         "MIME-Version: 1.0\n"
         "Content-Type: text/plain; charset=CHARSET\n"
         "Content-Transfer-Encoding: 8bit\n"
 #
-# File: src/Erebot/Module/Math.php, line: 103
+# File: src/Erebot/Module/Math.php, line: 99
 msgid   "\n"
         "<b>Usage:</b> !<var name='trigger'/> &lt;<u>formula</u>&gt;.\n"
         "Computes the given formula and displays the result.\n"
@@ -23,32 +24,32 @@ msgid   "\n"
         "and modules (%) are supported.\n"
 msgstr  ""
 #
-# File: src/Erebot/Module/Math.php, line: 89
+# File: src/Erebot/Module/Math.php, line: 85
 msgid   "\n"
         "Provides the <b><var name=\"trigger\"/></b> command which allows you\n"
         "to submit formulae to the bot for computation.\n"
 msgstr  ""
 #
-# File: src/Erebot/Module/Math.php, line: 151
+# File: src/Erebot/Module/Math.php, line: 150
 msgid   "% is undefined on real numbers"
 msgstr  ""
 #
-# File: src/Erebot/Module/Math.php, line: 53
+# File: src/Erebot/Module/Math.php, line: 47
 msgid   "Could not register Math trigger"
 msgstr  ""
 #
-# File: src/Erebot/Module/Math.php, line: 139
+# File: src/Erebot/Module/Math.php, line: 138
 msgid   "Division by zero"
 msgstr  ""
 #
-# File: src/Erebot/Module/Math.php, line: 143
+# File: src/Erebot/Module/Math.php, line: 142
 msgid   "Exponent is too big for computation"
 msgstr  ""
 #
-# File: src/Erebot/Module/Math.php, line: 155
+# File: src/Erebot/Module/Math.php, line: 154
 msgid   "Syntax error"
 msgstr  ""
 #
-# File: src/Erebot/Module/Math.php, line: 147
+# File: src/Erebot/Module/Math.php, line: 146
 msgid   "^ is undefined for negative exponents"
 msgstr  ""
