@@ -43,8 +43,9 @@ extends Erebot_Module_Base
             $this->_trigger = $registry->registerTriggers($trigger, $matchAny);
             if ($this->_trigger === NULL) {
                 $translator = $this->getTranslator(FALSE);
-                throw new Exception($translator->gettext(
-                    'Could not register Math trigger'));
+                throw new Exception(
+                    $translator->gettext('Could not register Math trigger')
+                );
             }
 
             $this->_handler = new Erebot_EventHandler(
@@ -82,10 +83,10 @@ extends Erebot_Module_Base
         $nbArgs     =   count($words);
 
         if ($nbArgs == 1 && $words[0] == $moduleName) {
-            $msg = $translator->gettext('
-Provides the <b><var name="trigger"/></b> command which allows you
-to submit formulae to the bot for computation.
-');
+            $msg = $translator->gettext(
+                'Provides the <b><var name="trigger"/></b> command which '.
+                'allows you to submit formulae to the bot for computation.'
+            );
             $formatter = new Erebot_Styling($msg, $translator);
             $formatter->assign('trigger', $trigger);
             $this->sendMessage($target, $formatter->render());
@@ -96,12 +97,12 @@ to submit formulae to the bot for computation.
             return FALSE;
 
         if ($words[1] == $trigger) {
-            $msg = $translator->gettext("
-<b>Usage:</b> !<var name='trigger'/> &lt;<u>formula</u>&gt;.
-Computes the given formula and displays the result.
-The four basic operators (+, -, *, /), parenthesis, exponentiation (^)
-and modules (%) are supported.
-");
+            $msg = $translator->gettext(
+                "<b>Usage:</b> !<var name='trigger'/> &lt;<u>formula</u>&gt;. ".
+                "Computes the given formula and displays the result. ".
+                "The four basic operators (+, -, *, /), parenthesis, ".
+                "exponentiation (^) and modules (%) are supported."
+            );
             $formatter = new Erebot_Styling($msg, $translator);
             $formatter->assign('trigger', $trigger);
             $this->sendMessage($target, $formatter->render());
@@ -130,28 +131,38 @@ and modules (%) are supported.
             $msg    = '<var name="formula"/> = <b><var name="result"/></b>';
             $tpl    = new Erebot_Styling($msg, $translator);
             $tpl->assign('formula', $formula);
-            $tpl->assign('result',  $fp->getResult());
+            $tpl->assign('result', $fp->getResult());
             $this->sendMessage($target, $tpl->render());
         }
         catch (Erebot_Module_Math_DivisionByZeroException $e) {
-            $this->sendMessage($target,
-                $translator->gettext('Division by zero'));
+            $this->sendMessage(
+                $target,
+                $translator->gettext('Division by zero')
+            );
         }
         catch (Erebot_Module_Math_ExponentTooBigException $e) {
-            $this->sendMessage($target,
-                $translator->gettext('Exponent is too big for computation'));
+            $this->sendMessage(
+                $target,
+                $translator->gettext('Exponent is too big for computation')
+            );
         }
         catch (Erebot_Module_Math_NegativeExponentException $e) {
-            $this->sendMessage($target,
-                $translator->gettext('^ is undefined for negative exponents'));
+            $this->sendMessage(
+                $target,
+                $translator->gettext('^ is undefined for negative exponents')
+            );
         }
         catch (Erebot_Module_Math_NoModulusOnRealsException $e) {
-            $this->sendMessage($target,
-                $translator->gettext('% is undefined on real numbers'));
+            $this->sendMessage(
+                $target,
+                $translator->gettext('% is undefined on real numbers')
+            );
         }
         catch (Erebot_Module_Math_SyntaxErrorException $e) {
-            $this->sendMessage($target,
-                $translator->gettext('Syntax error'));
+            $this->sendMessage(
+                $target,
+                $translator->gettext('Syntax error')
+            );
         }
     }
 }

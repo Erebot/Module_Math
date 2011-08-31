@@ -18,11 +18,11 @@
 
 class Erebot_Module_Math_Lexer
 {
-    protected $formula;
-    protected $length;
-    protected $position;
-    protected $skip;
-    protected $parser;
+    protected $_formula;
+    protected $_length;
+    protected $_position;
+    protected $_skip;
+    protected $_parser;
 
     // Allow stuff such as "1234".
     const PATT_INTEGER  = '/^[0-9]+/';
@@ -32,17 +32,19 @@ class Erebot_Module_Math_Lexer
 
     public function __construct($formula)
     {
-        $this->formula  = strtolower($formula);
-        $this->length   = strlen($formula);
-        $this->position = 0;
-
-        $this->parser   = new Erebot_Module_Math_Parser();
-        $this->tokenize();
+        $this->_formula     = strtolower($formula);
+        $this->_length      = strlen($formula);
+        $this->_position    = 0;
+        $this->_parser      = new Erebot_Module_Math_Parser();
+        $this->_tokenize();
     }
 
-    public function getResult() { return $this->parser->getResult(); }
+    public function getResult()
+    {
+        return $this->_parser->getResult();
+    }
 
-    protected function tokenize()
+    protected function _tokenize()
     {
         $operators = array(
             '(' =>  Erebot_Module_Math_Parser::TK_PAR_OPEN,
@@ -55,42 +57,42 @@ class Erebot_Module_Math_Lexer
             '^' =>  Erebot_Module_Math_Parser::TK_OP_POW,
         );
 
-        while ($this->position < $this->length) {
-            $c          = $this->formula[$this->position];
-            $subject    = substr($this->formula, $this->position);
+        while ($this->_position < $this->_length) {
+            $c          = $this->_formula[$this->_position];
+            $subject    = substr($this->_formula, $this->_position);
 
             if (isset($operators[$c])) {
-                $this->parser->doParse($operators[$c], $c);
-                $this->position++;
+                $this->_parser->doParse($operators[$c], $c);
+                $this->_position++;
             }
 
             else if (preg_match(self::PATT_REAL, $subject, $matches)) {
-                $this->position += strlen($matches[0]);
-                $this->parser->doParse(
+                $this->_position += strlen($matches[0]);
+                $this->_parser->doParse(
                     Erebot_Module_Math_Parser::TK_NUMBER,
                     (double) $matches[0]
                 );
             }
 
             else if (preg_match(self::PATT_INTEGER, $subject, $matches)) {
-                $this->position += strlen($matches[0]);
-                $this->parser->doParse(
+                $this->_position += strlen($matches[0]);
+                $this->_parser->doParse(
                     Erebot_Module_Math_Parser::TK_NUMBER,
                     (int) $matches[0]
                 );
             }
 
             else if (strpos(" \t", $c) !== FALSE)
-                $this->position++;
+                $this->_position++;
             else
-                $this->parser->doParse(
+                $this->_parser->doParse(
                     Erebot_Module_Math_Parser::YY_ERROR_ACTION,
                     $c
                 );
         }
 
         // End of tokenization.
-        $this->parser->doParse(0, 0);
+        $this->_parser->doParse(0, 0);
     }
 }
 

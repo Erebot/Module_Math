@@ -17,5 +17,7 @@
 */
 
 class   Erebot_Module_Math_ExponentTooBigException
-extends Erebot_Module_Math_Exception {}
+extends Erebot_Module_Math_Exception
+{
+}
 
