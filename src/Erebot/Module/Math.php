@@ -16,12 +16,35 @@
     along with Erebot.  If not, see <http://www.gnu.org/licenses/>.
 */
 
+/**
+ * \brief
+ *      A module that provides a very basic calculator.
+ *
+ * The calculator implemented by this module only supports
+ * the four basic operators (+, -, /, *), exponentiation (^),
+ * modules (%) and parenthesis.
+ */
 class   Erebot_Module_Math
 extends Erebot_Module_Base
 {
+    /// Trigger registered by this module.
     protected $_trigger;
+
+    /// Handler defined by this module.
     protected $_handler;
 
+    /**
+     * This method is called whenever the module is (re)loaded.
+     *
+     * \param int $flags
+     *      A bitwise OR of the Erebot_Module_Base::RELOAD_*
+     *      constants. Your method should take proper actions
+     *      depending on the value of those flags.
+     *
+     * \note
+     *      See the documentation on individual RELOAD_*
+     *      constants for a list of possible values.
+     */
     public function _reload($flags)
     {
         if (!($flags & self::RELOAD_INIT)) {
@@ -60,11 +83,27 @@ extends Erebot_Module_Base
         }
     }
 
+    /// \copydoc Erebot_Module_Base::_unload()
     protected function _unload()
     {
     }
 
-    public function getHelp(Erebot_Interface_Event_Base_TextMessage $event, $words)
+    /**
+     * Provides help about this module.
+     *
+     * \param Erebot_Interface_Event_Base_TextMessage $event
+     *      Some help request.
+     *
+     * \param array $words
+     *      Parameters passed with the request. This is the same
+     *      as this module's name when help is requested on the
+     *      module itself (in opposition with help on a specific
+     *      command provided by the module).
+     */
+    public function getHelp(
+        Erebot_Interface_Event_Base_TextMessage $event,
+                                                $words
+    )
     {
         if ($event instanceof Erebot_Interface_Event_Base_Private) {
             $target = $event->getSource();
@@ -76,7 +115,6 @@ extends Erebot_Module_Base
         $fmt        = $this->getFormatter($chan);
         $trigger    = $this->parseString('trigger', 'math');
 
-        $bot        = $this->_connection->getBot();
         $moduleName = strtolower(get_class());
         $nbArgs     = count($words);
 
@@ -106,6 +144,20 @@ extends Erebot_Module_Base
         }
     }
 
+    /**
+     * Handles a request to do some calculation.
+     *
+     * \param Erebot_Interface_EventHandler $handler
+     *      Handler that triggered this event.
+     *
+     * \param Erebot_Interface_Event_Event_Base_TextMessage $event
+     *      Formula to calculate.
+     *
+     * \return
+     *      This method does not return anything.
+     *
+     * @SuppressWarnings(PHPMD.UnusedFormalParameter)
+     */
     public function handleMath(
         Erebot_Interface_EventHandler           $handler,
         Erebot_Interface_Event_Base_TextMessage $event
@@ -122,7 +174,7 @@ extends Erebot_Module_Base
         $fmt        = $this->getFormatter($chan);
 
         try {
-            $fp     = new Erebot_Module_Math_Lexer($formula);
+            $fp  = new Erebot_Module_Math_Lexer($formula);
             $msg = $fmt->_(
                 '<var name="formula"/> = <b><var name="result"/></b>',
                 array(

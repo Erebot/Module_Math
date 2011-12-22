@@ -16,34 +16,57 @@
     along with Erebot.  If not, see <http://www.gnu.org/licenses/>.
 */
 
+/**
+ * \brief
+ *      A lexer for simple formulae.
+ */
 class Erebot_Module_Math_Lexer
 {
+    /// Formula to parse.
     protected $_formula;
-    protected $_length;
-    protected $_position;
-    protected $_skip;
+
+    /// A parser for the formula.
     protected $_parser;
 
-    // Allow stuff such as "1234".
+    /// Allow stuff such as "1234".
     const PATT_INTEGER  = '/^[0-9]+/';
 
-    // Allow stuff such as "1.23", "1." or ".23".
+    /// Allow stuff such as "1.23", "1." or ".23".
     const PATT_REAL     = '/^[0-9]*\.[0-9]+|^[0-9]+\.[0-9]*/';
 
+    /**
+     * Creates a new lexer for a formula.
+     *
+     * \param string $formula
+     *      A formula to tokenize.
+     */
     public function __construct($formula)
     {
-        $this->_formula     = strtolower($formula);
-        $this->_length      = strlen($formula);
-        $this->_position    = 0;
-        $this->_parser      = new Erebot_Module_Math_Parser();
+        $this->_formula = strtolower($formula);
+        $this->_parser  = new Erebot_Module_Math_Parser();
         $this->_tokenize();
     }
 
+    /**
+     * Returns the result of the formula
+     * after calculation.
+     *
+     * \retval float
+     *      Result of the formula.
+     */
     public function getResult()
     {
         return $this->_parser->getResult();
     }
 
+    /**
+     * Does all the heavy work of tokenizing
+     * and parsing the formula.
+     *
+     * \throw Erebot_Module_Math_Exception
+     *      Some exception occurred while
+     *      tokenizing or parsing the formula.
+     */
     protected function _tokenize()
     {
         $operators = array(
@@ -57,17 +80,19 @@ class Erebot_Module_Math_Lexer
             '^' =>  Erebot_Module_Math_Parser::TK_OP_POW,
         );
 
-        while ($this->_position < $this->_length) {
-            $c          = $this->_formula[$this->_position];
-            $subject    = substr($this->_formula, $this->_position);
+        $position   = 0;
+        $length     = strlen($this->_formula);
+        while ($position < $length) {
+            $c          = $this->_formula[$position];
+            $subject    = substr($this->_formula, $position);
 
             if (isset($operators[$c])) {
                 $this->_parser->doParse($operators[$c], $c);
-                $this->_position++;
+                $position++;
             }
 
             else if (preg_match(self::PATT_REAL, $subject, $matches)) {
-                $this->_position += strlen($matches[0]);
+                $position += strlen($matches[0]);
                 $this->_parser->doParse(
                     Erebot_Module_Math_Parser::TK_NUMBER,
                     (double) $matches[0]
@@ -75,7 +100,7 @@ class Erebot_Module_Math_Lexer
             }
 
             else if (preg_match(self::PATT_INTEGER, $subject, $matches)) {
-                $this->_position += strlen($matches[0]);
+                $position += strlen($matches[0]);
                 $this->_parser->doParse(
                     Erebot_Module_Math_Parser::TK_NUMBER,
                     (int) $matches[0]
@@ -83,12 +108,13 @@ class Erebot_Module_Math_Lexer
             }
 
             else if (strpos(" \t", $c) !== FALSE)
-                $this->_position++;
-            else
+                $position++;
+            else {
                 $this->_parser->doParse(
                     Erebot_Module_Math_Parser::YY_ERROR_ACTION,
                     $c
                 );
+            }
         }
 
         // End of tokenization.

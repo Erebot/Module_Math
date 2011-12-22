@@ -16,6 +16,11 @@
     along with Erebot.  If not, see <http://www.gnu.org/licenses/>.
 */
 
+/**
+ * \brief
+ *      Raised when a syntax error is detected
+ *      in a given formula.
+ */
 class   Erebot_Module_Math_SyntaxErrorException
 extends Erebot_Module_Math_Exception
 {

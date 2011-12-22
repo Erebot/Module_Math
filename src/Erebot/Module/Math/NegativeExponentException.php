@@ -16,6 +16,12 @@
     along with Erebot.  If not, see <http://www.gnu.org/licenses/>.
 */
 
+/**
+ * \brief
+ *      Raised when an attempt is made to compute
+ *      the exponentiation of a number using
+ *      a negative exponent.
+ */
 class   Erebot_Module_Math_NegativeExponentException
 extends Erebot_Module_Math_Exception
 {

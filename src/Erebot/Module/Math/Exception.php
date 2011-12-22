@@ -16,6 +16,12 @@
     along with Erebot.  If not, see <http://www.gnu.org/licenses/>.
 */
 
+/**
+ * \brief
+ *      Generic exception used as the base
+ *      for other exceptions defined by this
+ *      module.
+ */
 class   Erebot_Module_Math_Exception
 extends Exception
 {

@@ -16,6 +16,11 @@
     along with Erebot.  If not, see <http://www.gnu.org/licenses/>.
 */
 
+/**
+ * \brief
+ *      Raised when an attempt is made to compute
+ *      the modulus of a floating value (real number).
+ */
 class   Erebot_Module_Math_NoModulusOnRealsException
 extends Erebot_Module_Math_Exception
 {
