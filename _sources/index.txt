@@ -4,7 +4,7 @@ Welcome to the documentation for Erebot_Module_Math!
 Erebot_Module_Math is a module for `Erebot`_ that provides a basic calculator,
 useful for simple computations.
 
-It supports the four basic operators (+, -, *, /), exponentiation (^),
+It supports the four basic operators (+, -, \*, /), exponentiation (^),
 modules (%) and parenthesis. It focuses on usefulness rather than completeness.
 
 
