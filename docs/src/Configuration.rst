@@ -1,6 +1,8 @@
 Configuration
 =============
 
+..  _`configuration options`:
+
 Options
 -------
 
