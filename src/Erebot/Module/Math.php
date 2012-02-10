@@ -85,18 +85,13 @@ extends Erebot_Module_Base
         }
     }
 
-    /// \copydoc Erebot_Module_Base::_unload()
-    protected function _unload()
-    {
-    }
-
     /**
      * Provides help about this module.
      *
      * \param Erebot_Interface_Event_Base_TextMessage $event
      *      Some help request.
      *
-     * \param array $words
+     * \param Erebot_Interface_TextWrapper $words
      *      Parameters passed with the request. This is the same
      *      as this module's name when help is requested on the
      *      module itself (in opposition with help on a specific
@@ -104,7 +99,7 @@ extends Erebot_Module_Base
      */
     public function getHelp(
         Erebot_Interface_Event_Base_TextMessage $event,
-                                                $words
+        Erebot_Interface_TextWrapper            $words
     )
     {
         if ($event instanceof Erebot_Interface_Event_Base_Private) {
