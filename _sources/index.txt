@@ -20,9 +20,9 @@ Contents:
 
 Current status on http://travis-ci.org/:
 
-..  image:: https://secure.travis-ci.org/fpoirotte/Erebot_Module_Math.png
+..  image:: https://secure.travis-ci.org/Erebot/Erebot_Module_Math.png
     :alt: unknown
-    :target: http://travis-ci.org/#!/fpoirotte/Erebot_Module_Math/
+    :target: http://travis-ci.org/#!/Erebot/Erebot_Module_Math/
 
 ..  _`Erebot`:
     https://www.erebot.net/
