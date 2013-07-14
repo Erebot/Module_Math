@@ -18,11 +18,11 @@ Contents:
     Configuration
     Usage
 
-Current status on http://travis-ci.org/:
+Current status on http://travis-ci.org/: |travis|
 
-..  image:: https://secure.travis-ci.org/Erebot/Erebot_Module_Math.png
-    :alt: unknown
-    :target: http://travis-ci.org/#!/Erebot/Erebot_Module_Math/
+..  |travis| image:: https://secure.travis-ci.org/Erebot/Erebot_Module_Math.png
+    :alt: UNKNOWN
+    :target: https://travis-ci.org/Erebot/Erebot_Module_Math/
 
 ..  _`Erebot`:
     https://www.erebot.net/
