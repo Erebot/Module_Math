@@ -3,7 +3,7 @@
         "This file locks the dependencies of your project to a known state",
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file"
     ],
-    "hash": "47e2682b0e7965f1a0a02399308156f4",
+    "hash": "9d28384fba81c439e4942459cb364061",
     "packages": [
         {
             "name": "erebot/api",
@@ -235,13 +235,13 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/Erebot/Erebot_Buildenv.git",
-                "reference": "8207822cc657b8ba4a912a42a2ef95b84bab2b31"
+                "reference": "27105882b7183d14bd380113a4128e6751b5fbc3"
             },
             "dist": {
                 "type": "tar",
-                "url": "https://packages.erebot.net:943/composer/erebot-buildenv-8207822cc657b8ba4a912a42a2ef95b84bab2b31-zip-1123da.tar",
+                "url": "https://packages.erebot.net:943/composer/erebot-buildenv-27105882b7183d14bd380113a4128e6751b5fbc3-zip-7b02d2.tar",
                 "reference": "dev-master",
-                "shasum": "54cb298da2c896971efe471b86903bc0f0c1af29"
+                "shasum": "724a54984d5fe4c1492fb21eb62bcf78d1e0d01f"
             },
             "require": {
                 "phing/phing": ">=2.4.3",
@@ -282,7 +282,7 @@
                 "irc": "irc://irc.iiens.net/Erebot",
                 "source": "https://github.com/Erebot/Erebot_Buildenv"
             },
-            "time": "2013-07-14 20:01:38"
+            "time": "2013-07-15 13:37:36"
         },
         {
             "name": "erebot/testenv",
@@ -330,6 +330,57 @@
                 "source": "https://github.com/Erebot/Erebot_Testenv"
             },
             "time": "2013-06-24 21:23:45"
+        },
+        {
+            "name": "pear/php_parsergenerator",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/fpoirotte/PHP_ParserGenerator.git",
+                "reference": "20a11b3d7ea91640875490d9630faab8c1d0c0c7"
+            },
+            "dist": {
+                "type": "tar",
+                "url": "https://packages.erebot.net:943/composer/pear-php_parsergenerator-20a11b3d7ea91640875490d9630faab8c1d0c0c7-zip-a1c60f.tar",
+                "reference": "dev-master",
+                "shasum": "e78178f8555ce7455431f8faeeff4530d95dd87b"
+            },
+            "bin": [
+                "phplemon"
+            ],
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "0.1.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-0": {
+                    "PHP": ""
+                }
+            },
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Greg Beaver",
+                    "email": "cellog@php.net",
+                    "role": "lead"
+                }
+            ],
+            "description": "Translate grammar files in Lemon Parser Generator format into a PHP 5 parser",
+            "homepage": "https://github.com/pear/PHP_ParserGenerator",
+            "keywords": [
+                "lemon",
+                "lempar",
+                "parser"
+            ],
+            "support": {
+                "email": "cellog@php.net",
+                "source": "https://github.com/pear/PHP_ParserGenerator"
+            },
+            "time": "2013-07-15 16:23:45"
         },
         {
             "name": "phing/phing",
@@ -394,7 +445,8 @@
         "erebot/installers": 20,
         "erebot/generic-doc": 20,
         "erebot/buildenv": 20,
-        "erebot/testenv": 20
+        "erebot/testenv": 20,
+        "pear/php_parsergenerator": 20
     },
     "platform": {
         "php": ">=5.2.2"
