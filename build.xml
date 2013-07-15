@@ -22,7 +22,7 @@
             <param value="${phing.project.name}"/>
         </php>
         <copy file="data/Parser.y" todir="src/${module_dir}/"/>
-        <exec command="vendor/bin/phplemon -q -s src/${module_dir}/Parser.y" logoutput="true"/>
+        <exec command='"vendor/bin/phplemon" -q -s src/${module_dir}/Parser.y' logoutput="true"/>
         <delete file="src/${module_dir}/Parser.y"/>
     </target>
 
