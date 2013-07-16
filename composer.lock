@@ -337,13 +337,13 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/fpoirotte/PHP_ParserGenerator.git",
-                "reference": "20a11b3d7ea91640875490d9630faab8c1d0c0c7"
+                "reference": "11f2f7f622ab8eb13ecde30a7b7f1d73c0cfd2ec"
             },
             "dist": {
                 "type": "tar",
-                "url": "https://packages.erebot.net:943/composer/pear-php_parsergenerator-20a11b3d7ea91640875490d9630faab8c1d0c0c7-zip-a1c60f.tar",
+                "url": "https://packages.erebot.net:943/composer/pear-php_parsergenerator-11f2f7f622ab8eb13ecde30a7b7f1d73c0cfd2ec-zip-073f60.tar",
                 "reference": "dev-master",
-                "shasum": "e78178f8555ce7455431f8faeeff4530d95dd87b"
+                "shasum": "6b02ed69775986f42d1694f0bea761277f4aa036"
             },
             "bin": [
                 "phplemon"
@@ -380,7 +380,7 @@
                 "email": "cellog@php.net",
                 "source": "https://github.com/pear/PHP_ParserGenerator"
             },
-            "time": "2013-07-15 16:23:45"
+            "time": "2013-07-16 07:26:30"
         },
         {
             "name": "phing/phing",
