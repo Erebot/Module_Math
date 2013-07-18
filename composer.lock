@@ -235,15 +235,16 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/Erebot/Erebot_Buildenv.git",
-                "reference": "27105882b7183d14bd380113a4128e6751b5fbc3"
+                "reference": "658e6515fbb47f93832019dfdb4857e7b93ff9bb"
             },
             "dist": {
                 "type": "tar",
-                "url": "https://packages.erebot.net:943/composer/erebot-buildenv-27105882b7183d14bd380113a4128e6751b5fbc3-zip-7b02d2.tar",
+                "url": "https://packages.erebot.net:943/composer/erebot-buildenv-658e6515fbb47f93832019dfdb4857e7b93ff9bb-zip-443f35.tar",
                 "reference": "dev-master",
-                "shasum": "724a54984d5fe4c1492fb21eb62bcf78d1e0d01f"
+                "shasum": "fa49523f82d7f0c0fb5266146fde1012a8c992e2"
             },
             "require": {
+                "ext-xsl": "*",
                 "phing/phing": ">=2.4.3",
                 "php": ">=5.2.2"
             },
@@ -282,7 +283,7 @@
                 "irc": "irc://irc.iiens.net/Erebot",
                 "source": "https://github.com/Erebot/Erebot_Buildenv"
             },
-            "time": "2013-07-15 13:37:36"
+            "time": "2013-07-17 12:48:51"
         },
         {
             "name": "erebot/testenv",
