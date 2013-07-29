@@ -1,5 +1,4 @@
 /vendor
-/src/Erebot/Module/Math/Parser.php
 /src/Erebot/Module/Math/Parser.y
 /src/Erebot/Module/Math/Parser.out
 
