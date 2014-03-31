@@ -16,13 +16,13 @@
     along with Erebot.  If not, see <http://www.gnu.org/licenses/>.
 */
 
+namespace Erebot\Module\Math;
+
 /**
  * \brief
- *      Raised when a syntax error is detected
- *      in a given formula.
+ *      Raised when an attempt is made to compute
+ *      the modulus of a floating value (real number).
  */
-class   Erebot_Module_Math_SyntaxErrorException
-extends Erebot_Module_Math_Exception
+class NoModulusOnRealsException extends \Erebot\Module\Math\Exception
 {
 }
-

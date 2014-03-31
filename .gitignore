@@ -1,8 +1,10 @@
 /vendor
-/src/Erebot/Module/Math/Parser.y
-/src/Erebot/Module/Math/Parser.out
+/src/Math/Parser.y
+/src/Math/Parser.out
 
 /data/i18n/*/LC_MESSAGES/*.mo
+
+/*.svg
 
 /docs/api
 /docs/coverage

@@ -16,14 +16,14 @@
     along with Erebot.  If not, see <http://www.gnu.org/licenses/>.
 */
 
+namespace Erebot\Module\Math;
+
 /**
  * \brief
  *      Raised when an attempt is made to compute
- *      the exponentiation of a number using
- *      a negative exponent.
+ *      the exponentiation of a number using some
+ *      high exponent.
  */
-class   Erebot_Module_Math_NegativeExponentException
-extends Erebot_Module_Math_Exception
+class ExponentTooBigException extends \Erebot\Module\Math\Exception
 {
 }
-

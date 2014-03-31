@@ -16,13 +16,14 @@
     along with Erebot.  If not, see <http://www.gnu.org/licenses/>.
 */
 
+namespace Erebot\Module\Math;
+
 /**
  * \brief
- *      Raised when an attempt is made to compute
- *      the modulus of a floating value (real number).
+ *      Generic exception used as the base
+ *      for other exceptions defined by this
+ *      module.
  */
-class   Erebot_Module_Math_NoModulusOnRealsException
-extends Erebot_Module_Math_Exception
+class Exception extends \Exception
 {
 }
-

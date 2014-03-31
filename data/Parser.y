@@ -1,7 +1,11 @@
-%name Erebot_Module_Math_Parser_
-%declare_class {class Erebot_Module_Math_Parser}
-%syntax_error { throw new Erebot_Module_Math_SyntaxErrorException(); }
+%declare_class {class Parser}
+%syntax_error { throw new \Erebot\Module\Math\SyntaxErrorException(); }
 %token_prefix TK_
+%include {
+    // @codingStandardsIgnoreFile
+    namespace Erebot\Module\Math;
+    use \ArrayAccess;
+}
 %include_class {
     private $formulaResult = NULL;
     public function getResult() { return $this->formulaResult; }
@@ -19,32 +23,36 @@ exprPar(res) ::= exprPar(opd1) OP_SUB exprPar(opd2).    { res = opd1 - opd2; }
 exprPar(res) ::= exprPar(opd1) OP_MUL exprPar(opd2).    { res = opd1 * opd2; }
 
 exprPar(res) ::= exprPar(opd1) OP_DIV exprPar(opd2).    {
-    if (!opd2)
-        throw new Erebot_Module_Math_DivisionByZeroException();
+    if (!opd2) {
+        throw new \Erebot\Module\Math\DivisionByZeroException();
+    }
 
     res = opd1 / opd2; 
 }
 
 exprPar(res) ::= exprPar(opd1) OP_MOD exprPar(opd2).    {
-    if (!is_int(opd1) || !is_int(opd2))
-        throw new Erebot_Module_Math_NoModulusOnRealsException();
+    if (!is_int(opd1) || !is_int(opd2)) {
+        throw new \Erebot\Module\Math\NoModulusOnRealsException();
+    }
 
-    if (!opd2)
-        throw new Erebot_Module_Math_DivisionByZeroException();
+    if (!opd2) {
+        throw new \Erebot\Module\Math\DivisionByZeroException();
+    }
 
     res = opd1 % opd2;
 }
 
 exprPar(res) ::= exprPar(opd1) OP_POW exprPar(opd2).       {
-    if (opd2 < 0)
-        throw new Erebot_Module_Math_NegativeExponentException();
+    if (opd2 < 0) {
+        throw new \Erebot\Module\Math\NegativeExponentException();
+    }
 
     /// \FIXME This is quite silly! Should we use gmp for big numbers ?
-    if (opd2 > 30)
-        throw new Erebot_Module_Math_ExponentTooBigException();
-
-    else
+    if (opd2 > 30) {
+        throw new \Erebot\Module\Math\ExponentTooBigException();
+    } else {
         res = pow(opd1, opd2);
+    }
 }
 
 exprPar(res)    ::= OP_ADD NUMBER(x).   { res = x; }

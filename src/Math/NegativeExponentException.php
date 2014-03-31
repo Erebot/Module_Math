@@ -16,14 +16,14 @@
     along with Erebot.  If not, see <http://www.gnu.org/licenses/>.
 */
 
+namespace Erebot\Module\Math;
+
 /**
  * \brief
- *      Generic exception used as the base
- *      for other exceptions defined by this
- *      module.
+ *      Raised when an attempt is made to compute
+ *      the exponentiation of a number using
+ *      a negative exponent.
  */
-class   Erebot_Module_Math_Exception
-extends Exception
+class NegativeExponentException extends \Erebot\Module\Math\Exception
 {
 }
-
