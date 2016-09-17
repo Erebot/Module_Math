@@ -4,7 +4,6 @@
 %include {
     // @codingStandardsIgnoreFile
     namespace Erebot\Module\Math;
-    use \ArrayAccess;
 }
 %include_class {
     private $formulaResult = NULL;
@@ -27,7 +26,7 @@ exprPar(res) ::= exprPar(opd1) OP_DIV exprPar(opd2).    {
         throw new \Erebot\Module\Math\DivisionByZeroException();
     }
 
-    res = opd1 / opd2; 
+    res = opd1 / opd2;
 }
 
 exprPar(res) ::= exprPar(opd1) OP_MOD exprPar(opd2).    {

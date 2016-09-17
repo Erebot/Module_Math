@@ -7,8 +7,7 @@
 
     // @codingStandardsIgnoreFile
     namespace Erebot\Module\Math;
-    use \ArrayAccess;
-#line 13 "src/Math/Parser.php"
+use ArrayAccess; #line 12 "src/Math/Parser.php"
 
 /**
  * This can be used to store both the string representation of
@@ -103,15 +102,15 @@ class ParseyyStackEntry
 
 // declare_class is output here
 #line 1 "src/Math/Parser.y"
-class Parser#line 109 "src/Math/Parser.php"
+class Parser#line 108 "src/Math/Parser.php"
 {
 /* First off, code is included which follows the "include_class" declaration
 ** in the input file. */
-#line 9 "src/Math/Parser.y"
+#line 8 "src/Math/Parser.y"
 
     private $formulaResult = NULL;
     public function getResult() { return $this->formulaResult; }
-#line 118 "src/Math/Parser.php"
+#line 117 "src/Math/Parser.php"
 
 /* Next is all token values, as class constants
 */
@@ -763,31 +762,31 @@ static public $yy_action = array(
     **   function yy_r0($yymsp){ ... }           // User supplied code
     **  #line <lineno> <thisfile>
     */
-#line 18 "src/Math/Parser.y"
+#line 17 "src/Math/Parser.y"
     function yy_r0(){ $this->formulaResult = $this->yystack[$this->yyidx + 0]->minor;     }
-#line 774 "src/Math/Parser.php"
-#line 20 "src/Math/Parser.y"
+#line 773 "src/Math/Parser.php"
+#line 19 "src/Math/Parser.y"
     function yy_r1(){ $this->_retvalue = $this->yystack[$this->yyidx + -1]->minor;     }
-#line 777 "src/Math/Parser.php"
-#line 21 "src/Math/Parser.y"
+#line 776 "src/Math/Parser.php"
+#line 20 "src/Math/Parser.y"
     function yy_r2(){ $this->_retvalue = $this->yystack[$this->yyidx + -2]->minor + $this->yystack[$this->yyidx + 0]->minor;     }
-#line 780 "src/Math/Parser.php"
-#line 22 "src/Math/Parser.y"
+#line 779 "src/Math/Parser.php"
+#line 21 "src/Math/Parser.y"
     function yy_r3(){ $this->_retvalue = $this->yystack[$this->yyidx + -2]->minor - $this->yystack[$this->yyidx + 0]->minor;     }
-#line 783 "src/Math/Parser.php"
-#line 23 "src/Math/Parser.y"
+#line 782 "src/Math/Parser.php"
+#line 22 "src/Math/Parser.y"
     function yy_r4(){ $this->_retvalue = $this->yystack[$this->yyidx + -2]->minor * $this->yystack[$this->yyidx + 0]->minor;     }
-#line 786 "src/Math/Parser.php"
-#line 25 "src/Math/Parser.y"
+#line 785 "src/Math/Parser.php"
+#line 24 "src/Math/Parser.y"
     function yy_r5(){
     if (!$this->yystack[$this->yyidx + 0]->minor) {
         throw new \Erebot\Module\Math\DivisionByZeroException();
     }
 
-    $this->_retvalue = $this->yystack[$this->yyidx + -2]->minor / $this->yystack[$this->yyidx + 0]->minor; 
+    $this->_retvalue = $this->yystack[$this->yyidx + -2]->minor / $this->yystack[$this->yyidx + 0]->minor;
     }
-#line 795 "src/Math/Parser.php"
-#line 33 "src/Math/Parser.y"
+#line 794 "src/Math/Parser.php"
+#line 32 "src/Math/Parser.y"
     function yy_r6(){
     if (!is_int($this->yystack[$this->yyidx + -2]->minor) || !is_int($this->yystack[$this->yyidx + 0]->minor)) {
         throw new \Erebot\Module\Math\NoModulusOnRealsException();
@@ -799,8 +798,8 @@ static public $yy_action = array(
 
     $this->_retvalue = $this->yystack[$this->yyidx + -2]->minor % $this->yystack[$this->yyidx + 0]->minor;
     }
-#line 808 "src/Math/Parser.php"
-#line 45 "src/Math/Parser.y"
+#line 807 "src/Math/Parser.php"
+#line 44 "src/Math/Parser.y"
     function yy_r7(){
     if ($this->yystack[$this->yyidx + 0]->minor < 0) {
         throw new \Erebot\Module\Math\NegativeExponentException();
@@ -813,13 +812,13 @@ static public $yy_action = array(
         $this->_retvalue = pow($this->yystack[$this->yyidx + -2]->minor, $this->yystack[$this->yyidx + 0]->minor);
     }
     }
-#line 822 "src/Math/Parser.php"
-#line 58 "src/Math/Parser.y"
+#line 821 "src/Math/Parser.php"
+#line 57 "src/Math/Parser.y"
     function yy_r8(){ $this->_retvalue = $this->yystack[$this->yyidx + 0]->minor;     }
-#line 825 "src/Math/Parser.php"
-#line 59 "src/Math/Parser.y"
+#line 824 "src/Math/Parser.php"
+#line 58 "src/Math/Parser.y"
     function yy_r9(){ $this->_retvalue = -$this->yystack[$this->yyidx + 0]->minor;     }
-#line 828 "src/Math/Parser.php"
+#line 827 "src/Math/Parser.php"
 
     /**
      * placeholder for the left hand side in a reduce operation.
@@ -932,7 +931,7 @@ static public $yy_action = array(
     function yy_syntax_error($yymajor, $TOKEN)
     {
 #line 2 "src/Math/Parser.y"
- throw new \Erebot\Module\Math\SyntaxErrorException(); #line 942 "src/Math/Parser.php"
+ throw new \Erebot\Module\Math\SyntaxErrorException(); #line 941 "src/Math/Parser.php"
     }
 
     /**
