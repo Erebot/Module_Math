@@ -1,0 +1,64 @@
+# French translations for Erebot_Module_Math package.
+# Copyright (C) 2011-2016, Erebot
+# This file is distributed under the same license as the Erebot_Module_Math package.
+# Automatically generated, 2016.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Erebot_Module_Math 1.0.x-dev\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2016-12-29 23:22+0100\n"
+"PO-Revision-Date: 2016-12-29 23:21+0100\n"
+"Last-Translator: Automatically generated\n"
+"Language-Team: none\n"
+"Language: fr\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+#
+msgid "Configuration"
+msgstr ""
+#
+msgid "Options"
+msgstr ""
+#
+msgid "This module provides several configuration options."
+msgstr ""
+#
+msgid "Options for |project|"
+msgstr ""
+#
+msgid "Name"
+msgstr ""
+#
+msgid "Type"
+msgstr ""
+#
+msgid "Default value"
+msgstr ""
+#
+msgid "Description"
+msgstr ""
+#
+msgid "trigger"
+msgstr ""
+#
+msgid "string"
+msgstr ""
+#
+msgid "\"math\""
+msgstr ""
+#
+msgid ""
+"The command to use to ask the bot to compute a new formula. The trigger "
+"should only contain alpha-numeric characters and should not be prefixed."
+msgstr ""
+#
+msgid "Example"
+msgstr ""
+#
+msgid ""
+"In this example, we configure the bot to compute formulae when the ``!calc`` "
+"command is used."
+msgstr ""

@@ -1,15 +1,18 @@
-/vendor
+/build/
+/vendor/
+
 /src/Math/Parser.y
 /src/Math/Parser.out
 
-/data/i18n/*/LC_MESSAGES/*.mo
+*.mo
 
-/*.svg
-
-/docs/api
-/docs/coverage
-/docs/enduser
-/docs/src/generic
+/docs/api/
+/docs/coverage/
+/docs/enduser/
+/docs/src/generic/
+/docs/pot/.doctrees/
+/docs/pot/generic/
+/docs/i18n/*/LC_MESSAGES/generic/
 
 /*.pem
 /*.phar
