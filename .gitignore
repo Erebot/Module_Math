@@ -1,8 +1,7 @@
 /build/
 /vendor/
 
-/src/Math/Parser.y
-/src/Math/Parser.out
+/src/Math/Parser.*
 
 *.mo
 
