@@ -68,7 +68,7 @@ class Math extends \Erebot\Module\Base implements \Erebot\Interfaces\HelpEnabled
             }
 
             $this->handler = new \Erebot\EventHandler(
-                \Erebot\CallableWrapper::wrap(array($this, 'handleMath')),
+                array($this, 'handleMath'),
                 new \Erebot\Event\Match\All(
                     new \Erebot\Event\Match\Type(
                         '\\Erebot\\Interfaces\\Event\\Base\\TextMessage'
